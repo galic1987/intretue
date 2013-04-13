@@ -3,6 +3,7 @@ package main;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,6 +16,8 @@ import weka.core.Attribute;
 import weka.core.FastVector;
 import weka.core.Instance;
 import weka.core.Instances;
+import weka.core.converters.ArffSaver;
+import weka.core.converters.Saver;
 import weka.core.stemmers.*;
 
 public class Task11 {
@@ -28,9 +31,9 @@ public class Task11 {
 		
 		
 		// Standard arguments
-		//boolean stemming = Boolean.parseBoolean(args[0]);
-		//int lower = Integer.parseInt(args[1]);
-		//int upper = Integer.parseInt(args[2]);
+		boolean stemming = Boolean.parseBoolean(args[0]);
+		int lower = Integer.parseInt(args[1]);
+		int upper = Integer.parseInt(args[2]);
 		
 	
 		
@@ -58,13 +61,11 @@ public class Task11 {
 	            //System.out.println("Entering folder "+fileEntry.getName());
 	            for (File filedeeper : fileEntry.listFiles()){
 	            	numberOfDocuments++;
-		           // System.out.println("Reading  file "+filedeeper.getName());
-		            	// hashlist eine list von allem terms 
-		            	// wie oft ein term 
-		            //	System.out.println(getFrequencies(filedeeper).toString());
+		            // System.out.println("Reading  file "+filedeeper.getName());
+	            	//	System.out.println(getFrequencies(filedeeper).toString());
 	            	
 	            		// how often some terms come in one document
-		            	Map<String, Integer> m = getFrequencies(filedeeper);
+		            	Map<String, Integer> m = getFrequencies(filedeeper,stemming);
 		            	List<Term> listOfTerms = new ArrayList<Term>();
 		            	
 		            	// iterate the whole term hastable add posting lists
@@ -72,6 +73,13 @@ public class Task11 {
 		                while (it.hasNext()) {
 		                    Entry<String, Integer> pairs = it.next();
 //		                    System.out.println(pairs.getKey() + " = " + pairs.getValue());
+		                    
+		                    // frequency thresholding
+		                    int frequency = pairs.getValue();
+		                    if(frequency < lower || frequency > upper){
+		                    	continue;
+		                    }
+		                    
 		                    if(postingLists.containsKey(pairs.getKey())){
 		                    	List<String> l = postingLists.get(pairs.getKey());
 		                    	l.add(filedeeper.getName());
@@ -96,7 +104,7 @@ public class Task11 {
 	    }
 		
 		//System.out.println(numberOfDocuments);
-		//System.out.println(postingLists.toString());
+		System.out.println("sdadasd     " + postingLists.size());
 		
 		
 		
@@ -121,6 +129,15 @@ public class Task11 {
 		
 		data = new Instances("MyRelation", atts, 0);
 		
+		
+		
+//		 ArffSaver saver = new ArffSaver();
+//		 saver.setInstances(data);
+//		 saver.setFile(new File("./data/test.arff"));
+//		 saver.setDestination(new File("./data/test.arff"));   // **not** necessary in 3.5.4 and later
+//		  saver.setRetrieval(Saver.INCREMENTAL);
+//		  saver.setStructure(data);
+
 		
 		//go through all documents and compute idf
 		Iterator<Entry<String, List<Term>>> itDoc = documents.entrySet().iterator();
@@ -147,10 +164,10 @@ public class Task11 {
 			}
 			
 			data.add(new Instance(1.0, vals));
+			
 		}
 		
-		
-		System.out.print(data);
+		 
 
 		
 		} catch (Exception e) {
@@ -161,19 +178,23 @@ public class Task11 {
 	
 	
 
-	public static Map<String, Integer> getFrequencies(File document) throws FileNotFoundException{
+	public static Map<String, Integer> getFrequencies(File document, boolean stemming) throws FileNotFoundException{
 		Scanner sc = new Scanner(new FileInputStream(document));
 		HashMap<String,Integer> freq = new HashMap<String,Integer>();
+		LovinsStemmer s = new LovinsStemmer();
 		
 		//int count=0;
 		while(sc.hasNext()){
 			String n = sc.next().toLowerCase();
 			n = n.replaceAll("[^A-Za-z0-9 ]", "");
-
+			
+			if(stemming){
+			n = s.stem(n);
+			}
 
 			//System.out.println("Word " + n);
 			
-			if(n.length()<1){
+			if(n.length()<=1){
 				continue;
 			}
 			
