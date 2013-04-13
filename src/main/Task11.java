@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import weka.core.stemmers.*;
+
 public class Task11 {
 
 	/**
@@ -14,37 +16,63 @@ public class Task11 {
 	 */
 	public static void main(String[] args) {
 		
-		
-//		boolean stemming = Boolean.getBoolean(args[0]);
-//		int lower = Integer.getInteger(args[1]);
-//		int upper = Integer.getInteger(args[2]);
-		
 		try {
+		
+		
+		// Standard arguments
+		boolean stemming = Boolean.parseBoolean(args[0]);
+		int lower = Integer.parseInt(args[1]);
+		int upper = Integer.parseInt(args[2]);
+		
+	
+		
+		// This is stemmer working , TODO: I dont know where should we implement this? On input word query?
+		LovinsStemmer s = new LovinsStemmer();
+		System.out.print(s.stem("birds"));
+		System.out.print(s.stem("pears"));
+		System.out.print(s.stemString("what should I stem here in this house"));
+
+
+		
+		
+		
 		// 1. loop all files in the folder
 		final File folder = new File("20_newsgroups_subset");
+		
+		// todo 
+		HashMap<String,Term> term = new HashMap<String,Term>();
+		int numberOfDocuments = 0;
 		
 		for (final File fileEntry : folder.listFiles()) {
 	        if (fileEntry.isDirectory()) {
 	            //System.out.println("Entering folder "+fileEntry.getName());
 	            for (File filedeeper : fileEntry.listFiles()){
-		            System.out.println("Reading  file "+filedeeper.getName());
+	            	numberOfDocuments++;
+		           // System.out.println("Reading  file "+filedeeper.getName());
 		            
-		            
-		            	System.out.println(getFrequencies(filedeeper).toString());
+		            	// hashlist eine list von allem terms 
+		            	
+		            	// wie oft ein term 
+		            //	System.out.println(getFrequencies(filedeeper).toString());
+		            	
+		            	
+		            	// in wieviel dokumenten ein term vorkommt 
+		            	
+		            	
+		            	
 					
 	            }
 	        }
 	    }
 		
+		System.out.println(numberOfDocuments);
+		
 		} catch (Exception e) {
 			e.printStackTrace();
-			// TODO: handle exception
 		}
-		
-		
-		
-		
 	}
+	
+	
 
 	public static Map getFrequencies(File document) throws FileNotFoundException{
 		
@@ -61,7 +89,7 @@ public class Task11 {
 			}
 
 
-			System.out.println("Word " + n);
+			//System.out.println("Word " + n);
 			
 			if(n.length()<1){
 				continue;
