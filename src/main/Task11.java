@@ -3,18 +3,24 @@ package main;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Vector;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
+import javax.swing.ListModel;
+
+import org.w3c.dom.views.DocumentView;
+
 import weka.core.Attribute;
 import weka.core.FastVector;
-import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.ArffSaver;
 import weka.core.converters.Saver;
@@ -41,7 +47,7 @@ public class Task11 {
 		
 		// TODO: 
 		HashMap<String,List<String>> postingLists = new HashMap<String,List<String>>();
-		HashMap<String, List<Term>> documents = new HashMap<String, List<Term>>();
+		HashMap<String, HashMap<String, TermInfo>> documents = new HashMap<String, HashMap<String, TermInfo>>();
 		
 		int numberOfDocuments = 0; // N 
 		
@@ -55,7 +61,7 @@ public class Task11 {
 	            	
 	            		// how often some terms come in one document
 		            	Map<String, Integer> m = getFrequencies(filedeeper,stemming);
-		            	List<Term> listOfTerms = new ArrayList<Term>();
+		            	HashMap<String, TermInfo> listOfTerms = new HashMap<String, TermInfo>();
 		            	
 		            	// iterate the whole term hastable add posting lists
 		            	Iterator<Entry<String, Integer>> it = m.entrySet().iterator();
@@ -75,15 +81,14 @@ public class Task11 {
 		                    }else{
 		                    	List<String> l = new ArrayList<String>();
 		                    	l.add(filedeeper.getName());
-		                    	postingLists.put((String) pairs.getKey(), l);
+		                    	postingLists.put(pairs.getKey(), l);
 		                    }
 		                    
 		                    it.remove(); // avoids a ConcurrentModificationException
 		                    
-		                    Term t = new Term();
-		                    t.setTerm(pairs.getKey());
+		                    TermInfo t = new TermInfo();
 		                    t.setFreq(pairs.getValue());
-		                    listOfTerms.add(t);
+		                    listOfTerms.put(pairs.getKey(), t);
 		                }
 	            	
 	            		// total term frequencies
@@ -138,35 +143,139 @@ public class Task11 {
 		
 		 
 		//go through all documents and compute idf
-		Iterator<Entry<String, List<Term>>> itDoc = documents.entrySet().iterator();
+		Iterator<Entry<String, HashMap<String, TermInfo>>> itDoc = documents.entrySet().iterator();
 		while(itDoc.hasNext()) {
-			Entry<String, List<Term>> entry = itDoc.next();
-			List<Term> listOfTerms = entry.getValue();
+			Entry<String, HashMap<String, TermInfo>> entry = itDoc.next();
+			HashMap<String, TermInfo> listOfTerms = entry.getValue();
 			String document = entry.getKey();
 			
 			//arff
 			vals = new double[data.numAttributes()];
 			vals[0] = data.attribute(0).addStringValue(document);
 			
-			Iterator<Term> itTerm = listOfTerms.iterator();
+			Iterator<Entry<String, TermInfo>> itTerm = listOfTerms.entrySet().iterator();
 			while(itTerm.hasNext()) {
-				Term t = itTerm.next();
+				Entry<String, TermInfo> entryTerm = itTerm.next();
+				TermInfo t = entryTerm.getValue();
+				String term = entryTerm.getKey();
 				
-				t.setDocFreq(postingLists.get(t.getTerm()).size());
+				t.setDocFreq(postingLists.get(term).size());
 				
 				//idf = log (1 + termfrequency) * log ( N / documentfrequency)
 				t.setIdf(Math.log10(1 + t.getFreq()) * Math.log10(numberOfDocuments / t.getDocFreq()));
 
-				vals[attrPosition.get(t.getTerm())] = t.getIdf();
+				vals[attrPosition.get(term)] = t.getIdf();
 				//vals[attrPosition.get(t.getTerm())] = t.getFreq();
 			}
 			
 			//data.add(new Instance(1.0, vals));
-			 saver.writeIncremental(new Instance(1.0, vals));
+			 
+			//saver.writeIncremental(new Instance(1.0, vals));
 
 		}
 		
 		
+		/*
+		 * misc.forsale/76057
+		 * talk.religion.misc/83561
+		 * talk.politics.mideast/75422
+		 * sci.electronics/53720
+		 * sci.crypt/15725
+		 * misc.forsale/76165
+		 * talk.politics.mideast/76261
+		 * alt.atheism/53358
+		 * sci.electronics/54340
+		 * rec.motorcycles/104389
+		 * talk.politics.guns/54328
+		 * misc.forsale/76468
+		 * sci.crypt/15469
+		 * rec.sport.hockey/54171
+		 * talk.religion.misc/84177
+		 * rec.motorcycles/104727
+		 * comp.sys.mac.hardware/52165
+		 * sci.crypt/15379
+		 * sci.space/60779
+		 * sci.med/59456
+		 */
+		
+		//first document
+		String currentTopic = "76057";
+		
+		//get all terms for the document
+		HashMap<String, TermInfo> topicTerms = documents.get(currentTopic);
+		
+		ArrayList as = new ArrayList(topicTerms.entrySet());  
+        
+		//sort terms by ifd
+        Collections.sort( as , new Comparator() {  
+            public int compare( Object o1 , Object o2 )  
+            {
+                Map.Entry e1 = (Map.Entry)o1;  
+                Map.Entry e2 = (Map.Entry)o2;
+                TermInfo first = (TermInfo)e1.getValue();
+                TermInfo second = (TermInfo)e2.getValue();
+                return Double.compare(second.getIdf(), first.getIdf());  
+            }
+        });
+        
+        Vector<Double> topicVector = new Vector<Double>();
+        List<String> topicTopTerms = new ArrayList<String>();
+        
+        //select top 20 terms, get topic term vector
+        Iterator itSorted = as.iterator();
+        for (int i=0; i<20 && itSorted.hasNext(); i++) {
+        	Map.Entry<String, TermInfo> sortedTerm = (Entry<String, TermInfo>) itSorted.next();
+        	
+        	topicVector.add(sortedTerm.getValue().getIdf());
+        	topicTopTerms.add(sortedTerm.getKey());
+        	
+        	//System.out.println(sortedTerm.getKey() + " " + sortedTerm.getValue().getIdf());
+        }
+		
+        
+        PriorityQueue<Similarity> similarDocuments = new PriorityQueue<Similarity>();
+        //compute cosine similarity between all documents
+        for (Entry<String, HashMap<String, TermInfo>> documentEntry : documents.entrySet()) {
+        	//skip selected document
+        	if (!documentEntry.getKey().equals(currentTopic)) {
+        		
+        		HashMap<String, TermInfo> documentTerms = documentEntry.getValue();
+        		
+        		//get current document vector for top terms
+        		Vector<Double> documetVector = new Vector<Double>();
+        		for (String term : topicTopTerms) {
+        			if (documentTerms.containsKey(term)) {
+        				documetVector.add(documentTerms.get(term).getIdf());
+        			} else {
+        				documetVector.add(0.0);
+        			}
+        		}
+        		
+        		//compute the similarity
+        		double dotProduct = 0;
+        		double lengthTopic = 0;
+        		double lengthDocument = 0;
+        		for (int i=0; i<topicVector.size(); i++) {
+        			dotProduct += topicVector.get(i) * documetVector.get(i);
+        			lengthTopic += Math.pow(topicVector.get(i), 2);
+        			lengthDocument += Math.pow(documetVector.get(i), 2);
+        		}
+        		lengthTopic = Math.sqrt(lengthTopic);
+        		lengthDocument = Math.sqrt(lengthDocument);
+        		
+        		double cosineSimilarity = 0;
+        		
+        		if (lengthDocument > 0) {
+        			cosineSimilarity = dotProduct / (lengthTopic * lengthDocument);
+        		}
+        		
+        		similarDocuments.add(new Similarity(documentEntry.getKey(), cosineSimilarity));
+        	}
+        }
+
+        for (Similarity s : similarDocuments) {
+        	System.out.println(s.getDocument() + " " + s.getCosineSimilarity());
+        }
 		
 		
 		} catch (Exception e) {
