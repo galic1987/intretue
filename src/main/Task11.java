@@ -3,7 +3,10 @@ package main;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -39,9 +42,12 @@ public class Task11 {
 		// 1. loop all files in the folder
 		final File folder = new File("20_newsgroups_subset");
 		
-		// todo 
+		// TODO: 
 		HashMap<String,Term> term = new HashMap<String,Term>();
-		int numberOfDocuments = 0;
+		
+		HashMap<String,List> postingLists = new HashMap<String,List>();
+		
+		int numberOfDocuments = 0; // N 
 		
 		for (final File fileEntry : folder.listFiles()) {
 	        if (fileEntry.isDirectory()) {
@@ -49,15 +55,39 @@ public class Task11 {
 	            for (File filedeeper : fileEntry.listFiles()){
 	            	numberOfDocuments++;
 		           // System.out.println("Reading  file "+filedeeper.getName());
-		            
 		            	// hashlist eine list von allem terms 
-		            	
 		            	// wie oft ein term 
 		            //	System.out.println(getFrequencies(filedeeper).toString());
+	            	
+	            		// how often some terms come in one document
+		            	Map m = getFrequencies(filedeeper);
 		            	
 		            	
-		            	// in wieviel dokumenten ein term vorkommt 
 		            	
+		            	// iterate the whole term hastable add posting lists
+		            	Iterator it = m.entrySet().iterator();
+		                while (it.hasNext()) {
+		                    Map.Entry pairs = (Map.Entry)it.next();
+//		                    System.out.println(pairs.getKey() + " = " + pairs.getValue());
+		                    if(postingLists.containsKey(pairs.getKey())){
+		                    	List l = postingLists.get(pairs.getKey());
+		                    	l.add(filedeeper);
+		                    }else{
+		                    	postingLists.put((String) pairs.getKey(), new ArrayList<String>());
+		                    }
+		         
+		                    it.remove(); // avoids a ConcurrentModificationException
+		                }
+		            	
+		            	
+	            	
+	            		// total term frequencies
+		            	
+		            	// posting list
+	            		List<String> myList = new ArrayList<String>();
+	            		
+	            		
+	            	
 		            	
 		            	
 					
@@ -65,12 +95,15 @@ public class Task11 {
 	        }
 	    }
 		
-		System.out.println(numberOfDocuments);
+		//System.out.println(numberOfDocuments);
+		//System.out.println(postingLists.toString());
+
 		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	
 
