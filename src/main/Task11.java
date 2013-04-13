@@ -83,9 +83,7 @@ public class Task11 {
 	            	
 	            		// total term frequencies
 		            	
-		            	// posting list
-	            		List<String> myList = new ArrayList<String>();
-	            		
+		            	// posting list	            		
 	            		
 	            	
 		            	
