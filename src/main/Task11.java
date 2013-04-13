@@ -108,6 +108,13 @@ public class Task11 {
 		
 		
 		
+		
+		 ArffSaver saver = new ArffSaver();
+		 saver.setFile(new File("./data/test.arff"));
+		 saver.setDestination(new File("./data/test.arff"));   // **not** necessary in 3.5.4 and later
+		 saver.setRetrieval(Saver.BATCH);
+		 
+		 
 		FastVector atts;
 		double[] vals;
 		Instances data;
@@ -128,17 +135,16 @@ public class Task11 {
 		}
 		
 		data = new Instances("MyRelation", atts, 0);
-		
-		
-		
-//		 ArffSaver saver = new ArffSaver();
-//		 saver.setInstances(data);
-//		 saver.setFile(new File("./data/test.arff"));
-//		 saver.setDestination(new File("./data/test.arff"));   // **not** necessary in 3.5.4 and later
-//		  saver.setRetrieval(Saver.INCREMENTAL);
-//		  saver.setStructure(data);
 
+		//saver.writeBatch();
+		saver.setRetrieval(Saver.INCREMENTAL);
+		 saver.setStructure(data);
+System.out.println(saver.getOptions().toString());
 		
+		
+		
+		
+		 
 		//go through all documents and compute idf
 		Iterator<Entry<String, List<Term>>> itDoc = documents.entrySet().iterator();
 		while(itDoc.hasNext()) {
@@ -163,11 +169,11 @@ public class Task11 {
 				//vals[attrPosition.get(t.getTerm())] = t.getFreq();
 			}
 			
-			data.add(new Instance(1.0, vals));
-			
+			//data.add(new Instance(1.0, vals));
+			 saver.writeIncremental(new Instance(1.0, vals));
+
 		}
 		
-		 
 
 		
 		} catch (Exception e) {
