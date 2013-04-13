@@ -35,17 +35,6 @@ public class Task11 {
 		int lower = Integer.parseInt(args[1]);
 		int upper = Integer.parseInt(args[2]);
 		
-	
-		
-		// This is stemmer working , TODO: I dont know where should we implement this? On input word query?
-		LovinsStemmer s = new LovinsStemmer();
-		System.out.print(s.stem("birds"));
-		System.out.print(s.stem("pears"));
-		System.out.print(s.stemString("what should I stem here in this house"));
-
-
-		
-		
 		
 		// 1. loop all files in the folder
 		final File folder = new File("20_newsgroups_subset");
@@ -110,6 +99,8 @@ public class Task11 {
 		
 		
 		 ArffSaver saver = new ArffSaver();
+		 saver.setCompressOutput(false);
+
 		 saver.setFile(new File("./data/test.arff"));
 		 saver.setDestination(new File("./data/test.arff"));   // **not** necessary in 3.5.4 and later
 		 saver.setRetrieval(Saver.BATCH);
@@ -139,7 +130,8 @@ public class Task11 {
 		//saver.writeBatch();
 		saver.setRetrieval(Saver.INCREMENTAL);
 		 saver.setStructure(data);
-System.out.println(saver.getOptions().toString());
+		 
+//System.out.println(saver.getOptions().toString());
 		
 		
 		
@@ -174,7 +166,8 @@ System.out.println(saver.getOptions().toString());
 
 		}
 		
-
+		
+		
 		
 		} catch (Exception e) {
 			e.printStackTrace();
