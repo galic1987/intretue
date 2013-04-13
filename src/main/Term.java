@@ -7,6 +7,7 @@ public class Term {
 	private int freq;
 	
 	private int docFreq;
+	private double idf;
 
 	public int getDocFreq() {
 		return docFreq;
@@ -30,6 +31,14 @@ public class Term {
 
 	public void setTerm(String term) {
 		this.term = term;
+	}
+
+	public double getIdf() {
+		return idf;
+	}
+
+	public void setIdf(double idf) {
+		this.idf = idf;
 	}
 	
 	

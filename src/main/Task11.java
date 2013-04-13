@@ -8,8 +8,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
+import weka.core.Attribute;
+import weka.core.FastVector;
+import weka.core.Instance;
+import weka.core.Instances;
 import weka.core.stemmers.*;
 
 public class Task11 {
@@ -23,9 +28,9 @@ public class Task11 {
 		
 		
 		// Standard arguments
-		boolean stemming = Boolean.parseBoolean(args[0]);
-		int lower = Integer.parseInt(args[1]);
-		int upper = Integer.parseInt(args[2]);
+		//boolean stemming = Boolean.parseBoolean(args[0]);
+		//int lower = Integer.parseInt(args[1]);
+		//int upper = Integer.parseInt(args[2]);
 		
 	
 		
@@ -43,9 +48,8 @@ public class Task11 {
 		final File folder = new File("20_newsgroups_subset");
 		
 		// TODO: 
-		HashMap<String,Term> term = new HashMap<String,Term>();
-		
-		HashMap<String,List> postingLists = new HashMap<String,List>();
+		HashMap<String,List<String>> postingLists = new HashMap<String,List<String>>();
+		HashMap<String, List<Term>> documents = new HashMap<String, List<Term>>();
 		
 		int numberOfDocuments = 0; // N 
 		
@@ -60,41 +64,93 @@ public class Task11 {
 		            //	System.out.println(getFrequencies(filedeeper).toString());
 	            	
 	            		// how often some terms come in one document
-		            	Map m = getFrequencies(filedeeper);
-		            	
-		            	
+		            	Map<String, Integer> m = getFrequencies(filedeeper);
+		            	List<Term> listOfTerms = new ArrayList<Term>();
 		            	
 		            	// iterate the whole term hastable add posting lists
-		            	Iterator it = m.entrySet().iterator();
+		            	Iterator<Entry<String, Integer>> it = m.entrySet().iterator();
 		                while (it.hasNext()) {
-		                    Map.Entry pairs = (Map.Entry)it.next();
+		                    Entry<String, Integer> pairs = it.next();
 //		                    System.out.println(pairs.getKey() + " = " + pairs.getValue());
 		                    if(postingLists.containsKey(pairs.getKey())){
-		                    	List l = postingLists.get(pairs.getKey());
-		                    	l.add(filedeeper);
+		                    	List<String> l = postingLists.get(pairs.getKey());
+		                    	l.add(filedeeper.getName());
 		                    }else{
-		                    	postingLists.put((String) pairs.getKey(), new ArrayList<String>());
+		                    	List<String> l = new ArrayList<String>();
+		                    	l.add(filedeeper.getName());
+		                    	postingLists.put((String) pairs.getKey(), l);
 		                    }
-		         
+		                    
 		                    it.remove(); // avoids a ConcurrentModificationException
+		                    
+		                    Term t = new Term();
+		                    t.setTerm(pairs.getKey());
+		                    t.setFreq(pairs.getValue());
+		                    listOfTerms.add(t);
 		                }
-		            	
-		            	
 	            	
 	            		// total term frequencies
-		            	
-		            	// posting list	            		
-	            		
-	            	
-		            	
-		            	
-					
+		            	documents.put(filedeeper.getName(), listOfTerms);		            	
 	            }
 	        }
 	    }
 		
 		//System.out.println(numberOfDocuments);
 		//System.out.println(postingLists.toString());
+		
+		
+		
+		FastVector atts;
+		double[] vals;
+		Instances data;
+		// 1. set up attributes
+		atts = new FastVector();
+		// - numeric
+		atts.addElement(new Attribute("documentname", (FastVector) null));
+		//add terms
+		Iterator<String> itTermPosting = postingLists.keySet().iterator();
+		
+		HashMap<String, Integer> attrPosition = new HashMap<String, Integer>();
+		int attrI = 1;
+		while (itTermPosting.hasNext()) {
+			String term = itTermPosting.next();
+			atts.addElement(new Attribute(term));
+			attrPosition.put(term, attrI);
+			attrI++;
+		}
+		
+		data = new Instances("MyRelation", atts, 0);
+		
+		
+		//go through all documents and compute idf
+		Iterator<Entry<String, List<Term>>> itDoc = documents.entrySet().iterator();
+		while(itDoc.hasNext()) {
+			Entry<String, List<Term>> entry = itDoc.next();
+			List<Term> listOfTerms = entry.getValue();
+			String document = entry.getKey();
+			
+			//arff
+			vals = new double[data.numAttributes()];
+			vals[0] = data.attribute(0).addStringValue(document);
+			
+			Iterator<Term> itTerm = listOfTerms.iterator();
+			while(itTerm.hasNext()) {
+				Term t = itTerm.next();
+				
+				t.setDocFreq(postingLists.get(t.getTerm()).size());
+				
+				//idf = log (1 + termfrequency) * log ( N / documentfrequency)
+				t.setIdf(Math.log10(1 + t.getFreq()) * Math.log10(numberOfDocuments / t.getDocFreq()));
+
+				vals[attrPosition.get(t.getTerm())] = t.getIdf();
+				//vals[attrPosition.get(t.getTerm())] = t.getFreq();
+			}
+			
+			data.add(new Instance(1.0, vals));
+		}
+		
+		
+		System.out.print(data);
 
 		
 		} catch (Exception e) {
@@ -105,19 +161,14 @@ public class Task11 {
 	
 	
 
-	public static Map getFrequencies(File document) throws FileNotFoundException{
-		
-		EmailValidator valid = new EmailValidator();
+	public static Map<String, Integer> getFrequencies(File document) throws FileNotFoundException{
 		Scanner sc = new Scanner(new FileInputStream(document));
 		HashMap<String,Integer> freq = new HashMap<String,Integer>();
 		
 		//int count=0;
 		while(sc.hasNext()){
 			String n = sc.next().toLowerCase();
-			
-			if(!valid.validate(n)){
-				n = n.replaceAll("[^A-Za-z0-9 ]", "");
-			}
+			n = n.replaceAll("[^A-Za-z0-9 ]", "");
 
 
 			//System.out.println("Word " + n);
@@ -143,6 +194,5 @@ public class Task11 {
 		
 	return freq;
 	}
-
 
 }
