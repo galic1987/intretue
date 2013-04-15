@@ -1,0 +1,10 @@
+topic19 QQ sci.space/60875 1 0.872 groupD_large
+topic19 QQ sci.space/60236 2 0.477 groupD_large
+topic19 QQ sci.space/60994 3 0.431 groupD_large
+topic19 QQ sci.space/60995 4 0.431 groupD_large
+topic19 QQ sci.electronics/53929 5 0.284 groupD_large
+topic19 QQ sci.electronics/53569 6 0.284 groupD_large
+topic19 QQ sci.space/61279 7 0.284 groupD_large
+topic19 QQ sci.space/60997 8 0.284 groupD_large
+topic19 QQ soc.religion.christian/21567 9 0.284 groupD_large
+topic19 QQ rec.motorcycles/103137 10 0.277 groupD_large

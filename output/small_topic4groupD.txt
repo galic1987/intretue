@@ -1,0 +1,10 @@
+topic4 QQ sci.electronics/54130 1 0.654 groupD_small
+topic4 QQ sci.electronics/53719 2 0.621 groupD_small
+topic4 QQ sci.space/59871 3 0.542 groupD_small
+topic4 QQ comp.windows.x/66909 4 0.486 groupD_small
+topic4 QQ comp.graphics/38403 5 0.468 groupD_small
+topic4 QQ comp.graphics/39638 6 0.468 groupD_small
+topic4 QQ rec.sport.baseball/104996 7 0.463 groupD_small
+topic4 QQ sci.crypt/15545 8 0.452 groupD_small
+topic4 QQ comp.os.ms-windows.misc/9898 9 0.452 groupD_small
+topic4 QQ sci.crypt/14831 10 0.439 groupD_small

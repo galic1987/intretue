@@ -1,0 +1,10 @@
+topic17 QQ comp.sys.mac.hardware/51592 1 0.532 groupD_large
+topic17 QQ comp.sys.mac.hardware/51591 2 0.532 groupD_large
+topic17 QQ comp.sys.mac.hardware/52166 3 0.457 groupD_large
+topic17 QQ comp.sys.mac.hardware/52326 4 0.455 groupD_large
+topic17 QQ comp.sys.mac.hardware/52230 5 0.439 groupD_large
+topic17 QQ comp.sys.mac.hardware/52079 6 0.437 groupD_large
+topic17 QQ comp.sys.mac.hardware/51892 7 0.361 groupD_large
+topic17 QQ comp.sys.mac.hardware/51953 8 0.357 groupD_large
+topic17 QQ comp.windows.x/68012 9 0.347 groupD_large
+topic17 QQ comp.windows.x/66189 10 0.33 groupD_large

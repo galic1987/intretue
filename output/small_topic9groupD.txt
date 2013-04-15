@@ -1,0 +1,10 @@
+topic9 QQ sci.electronics/53946 1 0.562 groupD_small
+topic9 QQ sci.electronics/52743 2 0.533 groupD_small
+topic9 QQ comp.sys.mac.hardware/52138 3 0.532 groupD_small
+topic9 QQ sci.electronics/53531 4 0.526 groupD_small
+topic9 QQ comp.sys.mac.hardware/52254 5 0.517 groupD_small
+topic9 QQ sci.electronics/53545 6 0.517 groupD_small
+topic9 QQ comp.sys.mac.hardware/52030 7 0.517 groupD_small
+topic9 QQ comp.graphics/38851 8 0.503 groupD_small
+topic9 QQ sci.electronics/54152 9 0.503 groupD_small
+topic9 QQ comp.windows.x/66422 10 0.458 groupD_small

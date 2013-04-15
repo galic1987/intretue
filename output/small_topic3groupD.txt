@@ -1,0 +1,10 @@
+topic3 QQ talk.politics.misc/179058 1 0.376 groupD_small
+topic3 QQ soc.religion.christian/21442 2 0.329 groupD_small
+topic3 QQ talk.politics.mideast/77305 3 0.322 groupD_small
+topic3 QQ talk.politics.mideast/77242 4 0.32 groupD_small
+topic3 QQ soc.religion.christian/20680 5 0.319 groupD_small
+topic3 QQ talk.politics.mideast/77328 6 0.313 groupD_small
+topic3 QQ talk.politics.mideast/77270 7 0.312 groupD_small
+topic3 QQ talk.politics.misc/178325 8 0.308 groupD_small
+topic3 QQ talk.politics.mideast/76478 9 0.305 groupD_small
+topic3 QQ talk.politics.misc/176936 10 0.3 groupD_small

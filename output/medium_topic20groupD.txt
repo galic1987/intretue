@@ -1,0 +1,10 @@
+topic20 QQ sci.med/59475 1 0.637 groupD_medium
+topic20 QQ sci.med/59034 2 0.493 groupD_medium
+topic20 QQ sci.med/59057 3 0.457 groupD_medium
+topic20 QQ sci.med/59548 4 0.427 groupD_medium
+topic20 QQ sci.med/59126 5 0.411 groupD_medium
+topic20 QQ sci.med/59527 6 0.387 groupD_medium
+topic20 QQ sci.electronics/53569 7 0.381 groupD_medium
+topic20 QQ sci.med/59206 8 0.37 groupD_medium
+topic20 QQ sci.med/59224 9 0.37 groupD_medium
+topic20 QQ sci.med/59209 10 0.356 groupD_medium

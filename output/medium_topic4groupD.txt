@@ -1,0 +1,10 @@
+topic4 QQ sci.electronics/54130 1 0.657 groupD_medium
+topic4 QQ sci.electronics/53719 2 0.617 groupD_medium
+topic4 QQ sci.space/59871 3 0.538 groupD_medium
+topic4 QQ comp.windows.x/66909 4 0.492 groupD_medium
+topic4 QQ comp.graphics/38851 5 0.49 groupD_medium
+topic4 QQ comp.graphics/38375 6 0.475 groupD_medium
+topic4 QQ comp.graphics/38852 7 0.475 groupD_medium
+topic4 QQ comp.graphics/38403 8 0.468 groupD_medium
+topic4 QQ comp.graphics/39638 9 0.468 groupD_medium
+topic4 QQ comp.windows.x/68012 10 0.459 groupD_medium

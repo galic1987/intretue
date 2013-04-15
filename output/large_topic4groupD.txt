@@ -1,0 +1,10 @@
+topic4 QQ sci.electronics/53719 1 0.668 groupD_large
+topic4 QQ sci.electronics/53792 2 0.38 groupD_large
+topic4 QQ sci.electronics/54130 3 0.38 groupD_large
+topic4 QQ sci.electronics/52760 4 0.38 groupD_large
+topic4 QQ comp.graphics/38965 5 0.212 groupD_large
+topic4 QQ sci.electronics/53763 6 0.207 groupD_large
+topic4 QQ misc.forsale/76103 7 0.207 groupD_large
+topic4 QQ talk.politics.mideast/77368 8 0.197 groupD_large
+topic4 QQ sci.electronics/53822 9 0.184 groupD_large
+topic4 QQ sci.crypt/15545 10 0.184 groupD_large

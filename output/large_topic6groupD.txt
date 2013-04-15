@@ -1,0 +1,10 @@
+topic6 QQ misc.forsale/76838 1 0.533 groupD_large
+topic6 QQ comp.sys.ibm.pc.hardware/60439 2 0.503 groupD_large
+topic6 QQ sci.crypt/15243 3 0.399 groupD_large
+topic6 QQ talk.religion.misc/82810 4 0.382 groupD_large
+topic6 QQ soc.religion.christian/21684 5 0.363 groupD_large
+topic6 QQ sci.crypt/15873 6 0.354 groupD_large
+topic6 QQ comp.sys.mac.hardware/50447 7 0.352 groupD_large
+topic6 QQ talk.politics.mideast/76200 8 0.352 groupD_large
+topic6 QQ talk.politics.mideast/76199 9 0.352 groupD_large
+topic6 QQ sci.electronics/54265 10 0.349 groupD_large

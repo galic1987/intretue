@@ -1,0 +1,10 @@
+topic9 QQ misc.forsale/74729 1 0.493 groupD_large
+topic9 QQ sci.electronics/53767 2 0.307 groupD_large
+topic9 QQ comp.sys.mac.hardware/51906 3 0.307 groupD_large
+topic9 QQ comp.sys.mac.hardware/51900 4 0.307 groupD_large
+topic9 QQ comp.sys.mac.hardware/51695 5 0.307 groupD_large
+topic9 QQ sci.space/60784 6 0.307 groupD_large
+topic9 QQ sci.electronics/54487 7 0.307 groupD_large
+topic9 QQ comp.sys.ibm.pc.hardware/60464 8 0.307 groupD_large
+topic9 QQ talk.politics.misc/179009 9 0.307 groupD_large
+topic9 QQ sci.electronics/52743 10 0.307 groupD_large

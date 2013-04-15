@@ -148,8 +148,8 @@ public class Task11 {
 		 
 		//go through all documents and compute idf
 		Iterator<Entry<String, HashMap<String, TermInfo>>> itDoc = documents.entrySet().iterator();
-		int aaa = 0;
-		while(itDoc.hasNext() && (++aaa < 20)) {
+
+		while(itDoc.hasNext()) {
 			Entry<String, HashMap<String, TermInfo>> entry = itDoc.next();
 			HashMap<String, TermInfo> listOfTerms = entry.getValue();
 			String document = entry.getKey();

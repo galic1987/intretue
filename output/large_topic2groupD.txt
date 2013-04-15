@@ -1,0 +1,10 @@
+topic2 QQ soc.religion.christian/21396 1 0.404 groupD_large
+topic2 QQ talk.religion.misc/84123 2 0.377 groupD_large
+topic2 QQ soc.religion.christian/20488 3 0.364 groupD_large
+topic2 QQ soc.religion.christian/20548 4 0.349 groupD_large
+topic2 QQ soc.religion.christian/21685 5 0.34 groupD_large
+topic2 QQ soc.religion.christian/21786 6 0.329 groupD_large
+topic2 QQ talk.politics.guns/54347 7 0.329 groupD_large
+topic2 QQ soc.religion.christian/21352 8 0.329 groupD_large
+topic2 QQ soc.religion.christian/21399 9 0.329 groupD_large
+topic2 QQ talk.politics.guns/54513 10 0.32 groupD_large

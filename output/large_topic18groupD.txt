@@ -1,0 +1,10 @@
+topic18 QQ sci.crypt/15268 1 0.58 groupD_large
+topic18 QQ sci.crypt/16126 2 0.537 groupD_large
+topic18 QQ sci.crypt/15221 3 0.536 groupD_large
+topic18 QQ sci.crypt/15296 4 0.528 groupD_large
+topic18 QQ sci.crypt/15240 5 0.521 groupD_large
+topic18 QQ sci.crypt/15329 6 0.515 groupD_large
+topic18 QQ sci.crypt/15264 7 0.508 groupD_large
+topic18 QQ sci.crypt/15335 8 0.422 groupD_large
+topic18 QQ sci.crypt/15295 9 0.42 groupD_large
+topic18 QQ sci.crypt/15650 10 0.387 groupD_large

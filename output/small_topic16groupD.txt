@@ -1,0 +1,10 @@
+topic16 QQ rec.motorcycles/104763 1 0.689 groupD_small
+topic16 QQ talk.politics.misc/178547 2 0.672 groupD_small
+topic16 QQ rec.motorcycles/105232 3 0.671 groupD_small
+topic16 QQ rec.motorcycles/104456 4 0.662 groupD_small
+topic16 QQ rec.motorcycles/104839 5 0.659 groupD_small
+topic16 QQ sci.crypt/15176 6 0.657 groupD_small
+topic16 QQ talk.politics.misc/179073 7 0.631 groupD_small
+topic16 QQ talk.politics.misc/178894 8 0.628 groupD_small
+topic16 QQ rec.motorcycles/104866 9 0.621 groupD_small
+topic16 QQ sci.space/60215 10 0.614 groupD_small

@@ -1,0 +1,10 @@
+topic20 QQ sci.med/59475 1 0.688 groupD_large
+topic20 QQ sci.med/59527 2 0.524 groupD_large
+topic20 QQ sci.med/59034 3 0.518 groupD_large
+topic20 QQ sci.med/59057 4 0.511 groupD_large
+topic20 QQ sci.med/59548 5 0.478 groupD_large
+topic20 QQ sci.med/59209 6 0.457 groupD_large
+topic20 QQ sci.med/59247 7 0.428 groupD_large
+topic20 QQ sci.med/58780 8 0.422 groupD_large
+topic20 QQ sci.med/59125 9 0.386 groupD_large
+topic20 QQ sci.med/59126 10 0.379 groupD_large

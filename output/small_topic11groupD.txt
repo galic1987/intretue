@@ -1,0 +1,10 @@
+topic11 QQ talk.politics.guns/54364 1 0.681 groupD_small
+topic11 QQ talk.politics.guns/54408 2 0.661 groupD_small
+topic11 QQ talk.politics.guns/54861 3 0.622 groupD_small
+topic11 QQ talk.politics.misc/178422 4 0.609 groupD_small
+topic11 QQ talk.politics.guns/54191 5 0.576 groupD_small
+topic11 QQ talk.politics.guns/55260 6 0.576 groupD_small
+topic11 QQ talk.politics.guns/55276 7 0.576 groupD_small
+topic11 QQ talk.politics.guns/54123 8 0.555 groupD_small
+topic11 QQ talk.politics.guns/54122 9 0.523 groupD_small
+topic11 QQ talk.politics.guns/54730 10 0.522 groupD_small

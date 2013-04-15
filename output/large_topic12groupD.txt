@@ -1,0 +1,10 @@
+topic12 QQ misc.forsale/76465 1 0.539 groupD_large
+topic12 QQ misc.forsale/76467 2 0.462 groupD_large
+topic12 QQ misc.forsale/76153 3 0.376 groupD_large
+topic12 QQ misc.forsale/75950 4 0.365 groupD_large
+topic12 QQ sci.crypt/15176 5 0.359 groupD_large
+topic12 QQ talk.politics.mideast/77257 6 0.339 groupD_large
+topic12 QQ misc.forsale/76927 7 0.327 groupD_large
+topic12 QQ misc.forsale/76014 8 0.327 groupD_large
+topic12 QQ misc.forsale/76346 9 0.32 groupD_large
+topic12 QQ sci.space/59909 10 0.32 groupD_large

@@ -1,0 +1,10 @@
+topic2 QQ soc.religion.christian/21737 1 0.54 groupD_medium
+topic2 QQ soc.religion.christian/20548 2 0.504 groupD_medium
+topic2 QQ soc.religion.christian/20488 3 0.499 groupD_medium
+topic2 QQ alt.atheism/53645 4 0.489 groupD_medium
+topic2 QQ talk.politics.mideast/76479 5 0.484 groupD_medium
+topic2 QQ soc.religion.christian/21396 6 0.482 groupD_medium
+topic2 QQ talk.politics.mideast/75881 7 0.481 groupD_medium
+topic2 QQ talk.politics.mideast/76266 8 0.478 groupD_medium
+topic2 QQ talk.politics.mideast/77364 9 0.448 groupD_medium
+topic2 QQ soc.religion.christian/20764 10 0.435 groupD_medium

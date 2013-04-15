@@ -1,0 +1,10 @@
+topic19 QQ sci.space/60875 1 0.866 groupD_small
+topic19 QQ sci.space/61279 2 0.513 groupD_small
+topic19 QQ sci.electronics/53569 3 0.497 groupD_small
+topic19 QQ sci.space/60995 4 0.463 groupD_small
+topic19 QQ sci.space/60994 5 0.448 groupD_small
+topic19 QQ sci.space/60236 6 0.448 groupD_small
+topic19 QQ alt.atheism/53556 7 0.325 groupD_small
+topic19 QQ sci.space/61011 8 0.316 groupD_small
+topic19 QQ sci.space/60958 9 0.316 groupD_small
+topic19 QQ sci.space/61480 10 0.313 groupD_small

@@ -1,0 +1,10 @@
+topic12 QQ misc.forsale/76465 1 0.659 groupD_medium
+topic12 QQ misc.forsale/76467 2 0.57 groupD_medium
+topic12 QQ misc.forsale/76153 3 0.478 groupD_medium
+topic12 QQ comp.os.ms-windows.misc/9956 4 0.426 groupD_medium
+topic12 QQ comp.graphics/38852 5 0.425 groupD_medium
+topic12 QQ comp.graphics/38375 6 0.425 groupD_medium
+topic12 QQ comp.windows.x/68012 7 0.424 groupD_medium
+topic12 QQ sci.med/59435 8 0.423 groupD_medium
+topic12 QQ misc.forsale/76026 9 0.416 groupD_medium
+topic12 QQ sci.crypt/15176 10 0.412 groupD_medium

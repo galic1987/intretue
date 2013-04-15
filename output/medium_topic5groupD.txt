@@ -1,0 +1,10 @@
+topic5 QQ sci.crypt/15560 1 0.564 groupD_medium
+topic5 QQ sci.crypt/15789 2 0.491 groupD_medium
+topic5 QQ comp.os.ms-windows.misc/9523 3 0.477 groupD_medium
+topic5 QQ comp.graphics/38851 4 0.443 groupD_medium
+topic5 QQ comp.os.ms-windows.misc/10011 5 0.429 groupD_medium
+topic5 QQ sci.crypt/15616 6 0.417 groupD_medium
+topic5 QQ sci.crypt/15988 7 0.414 groupD_medium
+topic5 QQ sci.crypt/15176 8 0.398 groupD_medium
+topic5 QQ sci.crypt/15522 9 0.392 groupD_medium
+topic5 QQ comp.sys.ibm.pc.hardware/61075 10 0.388 groupD_medium

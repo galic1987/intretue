@@ -1,0 +1,10 @@
+topic17 QQ comp.sys.mac.hardware/52166 1 0.53 groupD_small
+topic17 QQ comp.sys.mac.hardware/52079 2 0.521 groupD_small
+topic17 QQ comp.sys.mac.hardware/52230 3 0.51 groupD_small
+topic17 QQ sci.space/59874 4 0.503 groupD_small
+topic17 QQ comp.os.ms-windows.misc/9865 5 0.493 groupD_small
+topic17 QQ comp.graphics/38403 6 0.476 groupD_small
+topic17 QQ comp.graphics/39638 7 0.476 groupD_small
+topic17 QQ sci.crypt/15176 8 0.47 groupD_small
+topic17 QQ sci.crypt/14831 9 0.455 groupD_small
+topic17 QQ sci.space/61207 10 0.445 groupD_small

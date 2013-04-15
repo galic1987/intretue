@@ -1,0 +1,10 @@
+topic15 QQ talk.religion.misc/84096 1 0.427 groupD_small
+topic15 QQ talk.politics.misc/178620 2 0.395 groupD_small
+topic15 QQ soc.religion.christian/21385 3 0.381 groupD_small
+topic15 QQ talk.religion.misc/84018 4 0.371 groupD_small
+topic15 QQ soc.religion.christian/21506 5 0.37 groupD_small
+topic15 QQ alt.atheism/51278 6 0.368 groupD_small
+topic15 QQ talk.politics.misc/176936 7 0.367 groupD_small
+topic15 QQ alt.atheism/53136 8 0.365 groupD_small
+topic15 QQ soc.religion.christian/21453 9 0.362 groupD_small
+topic15 QQ talk.politics.mideast/76040 10 0.361 groupD_small

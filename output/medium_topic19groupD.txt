@@ -1,0 +1,10 @@
+topic19 QQ sci.space/60875 1 0.877 groupD_medium
+topic19 QQ sci.electronics/53569 2 0.508 groupD_medium
+topic19 QQ sci.space/61279 3 0.507 groupD_medium
+topic19 QQ sci.space/60995 4 0.459 groupD_medium
+topic19 QQ sci.space/60994 5 0.454 groupD_medium
+topic19 QQ sci.space/60236 6 0.454 groupD_medium
+topic19 QQ sci.space/62104 7 0.303 groupD_medium
+topic19 QQ sci.space/61480 8 0.303 groupD_medium
+topic19 QQ comp.graphics/38851 9 0.301 groupD_medium
+topic19 QQ rec.autos/103033 10 0.299 groupD_medium

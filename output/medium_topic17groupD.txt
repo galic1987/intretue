@@ -1,0 +1,10 @@
+topic17 QQ comp.sys.mac.hardware/51892 1 0.624 groupD_medium
+topic17 QQ comp.graphics/39638 2 0.582 groupD_medium
+topic17 QQ comp.graphics/38403 3 0.582 groupD_medium
+topic17 QQ comp.windows.x/68012 4 0.579 groupD_medium
+topic17 QQ comp.sys.mac.hardware/52166 5 0.534 groupD_medium
+topic17 QQ comp.windows.x/66430 6 0.531 groupD_medium
+topic17 QQ comp.sys.mac.hardware/52079 7 0.524 groupD_medium
+topic17 QQ comp.sys.mac.hardware/52230 8 0.517 groupD_medium
+topic17 QQ comp.os.ms-windows.misc/9523 9 0.515 groupD_medium
+topic17 QQ comp.windows.x/67882 10 0.515 groupD_medium

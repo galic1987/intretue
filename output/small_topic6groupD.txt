@@ -1,0 +1,10 @@
+topic6 QQ alt.atheism/52499 1 0.535 groupD_small
+topic6 QQ talk.religion.misc/82810 2 0.532 groupD_small
+topic6 QQ sci.crypt/16123 3 0.522 groupD_small
+topic6 QQ talk.politics.misc/178786 4 0.507 groupD_small
+topic6 QQ comp.windows.x/66422 5 0.499 groupD_small
+topic6 QQ talk.politics.mideast/76479 6 0.498 groupD_small
+topic6 QQ talk.politics.misc/176936 7 0.495 groupD_small
+topic6 QQ sci.space/60252 8 0.482 groupD_small
+topic6 QQ comp.graphics/38375 9 0.48 groupD_small
+topic6 QQ comp.graphics/38852 10 0.48 groupD_small

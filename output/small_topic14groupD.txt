@@ -1,0 +1,10 @@
+topic14 QQ rec.sport.hockey/53953 1 0.674 groupD_small
+topic14 QQ rec.sport.hockey/54003 2 0.6 groupD_small
+topic14 QQ rec.sport.hockey/54900 3 0.581 groupD_small
+topic14 QQ rec.sport.hockey/53954 4 0.576 groupD_small
+topic14 QQ rec.sport.hockey/54127 5 0.516 groupD_small
+topic14 QQ rec.sport.hockey/53813 6 0.492 groupD_small
+topic14 QQ rec.sport.hockey/53868 7 0.492 groupD_small
+topic14 QQ rec.sport.hockey/54028 8 0.491 groupD_small
+topic14 QQ rec.sport.hockey/53812 9 0.487 groupD_small
+topic14 QQ rec.sport.hockey/54031 10 0.485 groupD_small

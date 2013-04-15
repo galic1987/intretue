@@ -1,0 +1,10 @@
+topic3 QQ talk.politics.misc/179058 1 0.55 groupD_medium
+topic3 QQ talk.politics.misc/178547 2 0.463 groupD_medium
+topic3 QQ talk.politics.mideast/77242 3 0.442 groupD_medium
+topic3 QQ talk.politics.mideast/77335 4 0.437 groupD_medium
+topic3 QQ talk.politics.mideast/77328 5 0.424 groupD_medium
+topic3 QQ talk.politics.mideast/77305 6 0.422 groupD_medium
+topic3 QQ talk.politics.mideast/77298 7 0.418 groupD_medium
+topic3 QQ talk.politics.misc/178571 8 0.415 groupD_medium
+topic3 QQ talk.politics.mideast/77280 9 0.405 groupD_medium
+topic3 QQ talk.politics.misc/179040 10 0.405 groupD_medium

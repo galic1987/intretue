@@ -1,0 +1,10 @@
+topic8 QQ alt.atheism/51231 1 0.655 groupD_large
+topic8 QQ alt.atheism/53356 2 0.645 groupD_large
+topic8 QQ alt.atheism/53675 3 0.644 groupD_large
+topic8 QQ sci.med/59536 4 0.599 groupD_large
+topic8 QQ sci.med/58055 5 0.599 groupD_large
+topic8 QQ sci.med/58877 6 0.599 groupD_large
+topic8 QQ sci.med/58054 7 0.599 groupD_large
+topic8 QQ alt.atheism/53382 8 0.599 groupD_large
+topic8 QQ sci.med/59137 9 0.599 groupD_large
+topic8 QQ sci.med/59012 10 0.599 groupD_large

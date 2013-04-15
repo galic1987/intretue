@@ -1,0 +1,10 @@
+topic13 QQ sci.crypt/15782 1 0.604 groupD_medium
+topic13 QQ sci.crypt/15299 2 0.587 groupD_medium
+topic13 QQ sci.crypt/15241 3 0.576 groupD_medium
+topic13 QQ sci.crypt/15598 4 0.562 groupD_medium
+topic13 QQ sci.crypt/15295 5 0.536 groupD_medium
+topic13 QQ sci.crypt/15292 6 0.521 groupD_medium
+topic13 QQ sci.crypt/16126 7 0.499 groupD_medium
+topic13 QQ sci.crypt/15644 8 0.492 groupD_medium
+topic13 QQ sci.crypt/14831 9 0.479 groupD_medium
+topic13 QQ sci.crypt/15560 10 0.467 groupD_medium

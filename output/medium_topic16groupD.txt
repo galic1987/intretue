@@ -1,0 +1,10 @@
+topic16 QQ talk.politics.mideast/75881 1 0.727 groupD_medium
+topic16 QQ sci.crypt/15176 2 0.71 groupD_medium
+topic16 QQ talk.politics.misc/179058 3 0.704 groupD_medium
+topic16 QQ rec.motorcycles/104763 4 0.696 groupD_medium
+topic16 QQ talk.politics.mideast/76479 5 0.695 groupD_medium
+topic16 QQ comp.graphics/38851 6 0.694 groupD_medium
+topic16 QQ talk.politics.misc/176936 7 0.687 groupD_medium
+topic16 QQ talk.politics.misc/178547 8 0.685 groupD_medium
+topic16 QQ rec.motorcycles/104456 9 0.679 groupD_medium
+topic16 QQ rec.motorcycles/105232 10 0.678 groupD_medium

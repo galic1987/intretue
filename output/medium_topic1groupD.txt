@@ -1,0 +1,10 @@
+topic1 QQ misc.forsale/76442 1 0.862 groupD_medium
+topic1 QQ misc.forsale/76056 2 0.629 groupD_medium
+topic1 QQ rec.autos/102958 3 0.628 groupD_medium
+topic1 QQ misc.forsale/76160 4 0.575 groupD_medium
+topic1 QQ rec.autos/101677 5 0.477 groupD_medium
+topic1 QQ talk.politics.guns/53296 6 0.431 groupD_medium
+topic1 QQ sci.electronics/53807 7 0.431 groupD_medium
+topic1 QQ sci.space/59905 8 0.42 groupD_medium
+topic1 QQ talk.politics.mideast/76039 9 0.397 groupD_medium
+topic1 QQ comp.graphics/38375 10 0.394 groupD_medium

@@ -1,0 +1,10 @@
+topic16 QQ rec.motorcycles/104720 1 0.634 groupD_large
+topic16 QQ rec.motorcycles/104456 2 0.634 groupD_large
+topic16 QQ rec.motorcycles/105218 3 0.634 groupD_large
+topic16 QQ rec.motorcycles/104469 4 0.634 groupD_large
+topic16 QQ rec.motorcycles/104866 5 0.597 groupD_large
+topic16 QQ rec.motorcycles/104839 6 0.597 groupD_large
+topic16 QQ rec.motorcycles/104763 7 0.588 groupD_large
+topic16 QQ rec.motorcycles/105232 8 0.328 groupD_large
+topic16 QQ rec.motorcycles/104591 9 0.322 groupD_large
+topic16 QQ rec.motorcycles/104666 10 0.322 groupD_large
