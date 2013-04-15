@@ -1,8 +1,10 @@
 package main;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -21,6 +23,7 @@ import org.w3c.dom.views.DocumentView;
 
 import weka.core.Attribute;
 import weka.core.FastVector;
+import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.ArffSaver;
 import weka.core.converters.Saver;
@@ -77,10 +80,10 @@ public class Task11 {
 		                    
 		                    if(postingLists.containsKey(pairs.getKey())){
 		                    	List<String> l = postingLists.get(pairs.getKey());
-		                    	l.add(filedeeper.getName());
+		                    	l.add(fileEntry.getName() + "/" + filedeeper.getName());
 		                    }else{
 		                    	List<String> l = new ArrayList<String>();
-		                    	l.add(filedeeper.getName());
+		                    	l.add(fileEntry.getName() + "/" + filedeeper.getName());
 		                    	postingLists.put(pairs.getKey(), l);
 		                    }
 		                    
@@ -92,22 +95,23 @@ public class Task11 {
 		                }
 	            	
 	            		// total term frequencies
-		            	documents.put(filedeeper.getName(), listOfTerms);		            	
+		            	documents.put(fileEntry.getName() + "/" + filedeeper.getName(), listOfTerms);		            	
 	            }
 	        }
 	    }
 		
 		//System.out.println(numberOfDocuments);
-		System.out.println("sdadasd     " + postingLists.size());
+		//System.out.println("sdadasd     " + postingLists.size());
 		
 		
 		
 		
 		 ArffSaver saver = new ArffSaver();
 		 saver.setCompressOutput(false);
+		 //saver.setCompressOutput(true);
 
-		 saver.setFile(new File("./data/test.arff"));
-		 saver.setDestination(new File("./data/test.arff"));   // **not** necessary in 3.5.4 and later
+		 saver.setFile(new File("./data/data.arff"));
+		 saver.setDestination(new File("./data/data.arff"));   // **not** necessary in 3.5.4 and later
 		 saver.setRetrieval(Saver.BATCH);
 		 
 		 
@@ -134,7 +138,7 @@ public class Task11 {
 
 		//saver.writeBatch();
 		saver.setRetrieval(Saver.INCREMENTAL);
-		 saver.setStructure(data);
+		saver.setStructure(data);
 		 
 //System.out.println(saver.getOptions().toString());
 		
@@ -144,7 +148,8 @@ public class Task11 {
 		 
 		//go through all documents and compute idf
 		Iterator<Entry<String, HashMap<String, TermInfo>>> itDoc = documents.entrySet().iterator();
-		while(itDoc.hasNext()) {
+		int aaa = 0;
+		while(itDoc.hasNext() && (++aaa < 20)) {
 			Entry<String, HashMap<String, TermInfo>> entry = itDoc.next();
 			HashMap<String, TermInfo> listOfTerms = entry.getValue();
 			String document = entry.getKey();
@@ -170,112 +175,119 @@ public class Task11 {
 			
 			//data.add(new Instance(1.0, vals));
 			 
-			//saver.writeIncremental(new Instance(1.0, vals));
+			saver.writeIncremental(new Instance(1.0, vals));
 
 		}
 		
+		String postingListSize = "large";
 		
-		/*
-		 * misc.forsale/76057
-		 * talk.religion.misc/83561
-		 * talk.politics.mideast/75422
-		 * sci.electronics/53720
-		 * sci.crypt/15725
-		 * misc.forsale/76165
-		 * talk.politics.mideast/76261
-		 * alt.atheism/53358
-		 * sci.electronics/54340
-		 * rec.motorcycles/104389
-		 * talk.politics.guns/54328
-		 * misc.forsale/76468
-		 * sci.crypt/15469
-		 * rec.sport.hockey/54171
-		 * talk.religion.misc/84177
-		 * rec.motorcycles/104727
-		 * comp.sys.mac.hardware/52165
-		 * sci.crypt/15379
-		 * sci.space/60779
-		 * sci.med/59456
-		 */
+		List<String> documentsToCompute = new ArrayList<String>();
+		documentsToCompute.add("misc.forsale/76057");
+		documentsToCompute.add("talk.religion.misc/83561");
+		documentsToCompute.add("talk.politics.mideast/75422");
+		documentsToCompute.add("sci.electronics/53720");
+		documentsToCompute.add("sci.crypt/15725");
+		documentsToCompute.add("misc.forsale/76165");
+		documentsToCompute.add("talk.politics.mideast/76261");
+		documentsToCompute.add("alt.atheism/53358");
+		documentsToCompute.add("sci.electronics/54340");
+		documentsToCompute.add("rec.motorcycles/104389");
+		documentsToCompute.add("talk.politics.guns/54328");
+		documentsToCompute.add("misc.forsale/76468");
+		documentsToCompute.add("sci.crypt/15469");
+		documentsToCompute.add("rec.sport.hockey/54171");
+		documentsToCompute.add("talk.religion.misc/84177");
+		documentsToCompute.add("rec.motorcycles/104727");
+		documentsToCompute.add("comp.sys.mac.hardware/52165");
+		documentsToCompute.add("sci.crypt/15379");
+		documentsToCompute.add("sci.space/60779");
+		documentsToCompute.add("sci.med/59456");
 		
-		//first document
-		String currentTopic = "76057";
-		
-		//get all terms for the document
-		HashMap<String, TermInfo> topicTerms = documents.get(currentTopic);
-		
-		ArrayList as = new ArrayList(topicTerms.entrySet());  
-        
-		//sort terms by ifd
-        Collections.sort( as , new Comparator() {  
-            public int compare( Object o1 , Object o2 )  
-            {
-                Map.Entry e1 = (Map.Entry)o1;  
-                Map.Entry e2 = (Map.Entry)o2;
-                TermInfo first = (TermInfo)e1.getValue();
-                TermInfo second = (TermInfo)e2.getValue();
-                return Double.compare(second.getIdf(), first.getIdf());  
-            }
-        });
-        
-        Vector<Double> topicVector = new Vector<Double>();
-        List<String> topicTopTerms = new ArrayList<String>();
-        
-        //select top 20 terms, get topic term vector
-        Iterator itSorted = as.iterator();
-        for (int i=0; i<20 && itSorted.hasNext(); i++) {
-        	Map.Entry<String, TermInfo> sortedTerm = (Entry<String, TermInfo>) itSorted.next();
-        	
-        	topicVector.add(sortedTerm.getValue().getIdf());
-        	topicTopTerms.add(sortedTerm.getKey());
-        	
-        	//System.out.println(sortedTerm.getKey() + " " + sortedTerm.getValue().getIdf());
-        }
-		
-        
-        PriorityQueue<Similarity> similarDocuments = new PriorityQueue<Similarity>();
-        //compute cosine similarity between all documents
-        for (Entry<String, HashMap<String, TermInfo>> documentEntry : documents.entrySet()) {
-        	//skip selected document
-        	if (!documentEntry.getKey().equals(currentTopic)) {
-        		
-        		HashMap<String, TermInfo> documentTerms = documentEntry.getValue();
-        		
-        		//get current document vector for top terms
-        		Vector<Double> documetVector = new Vector<Double>();
-        		for (String term : topicTopTerms) {
-        			if (documentTerms.containsKey(term)) {
-        				documetVector.add(documentTerms.get(term).getIdf());
-        			} else {
-        				documetVector.add(0.0);
-        			}
-        		}
-        		
-        		//compute the similarity
-        		double dotProduct = 0;
-        		double lengthTopic = 0;
-        		double lengthDocument = 0;
-        		for (int i=0; i<topicVector.size(); i++) {
-        			dotProduct += topicVector.get(i) * documetVector.get(i);
-        			lengthTopic += Math.pow(topicVector.get(i), 2);
-        			lengthDocument += Math.pow(documetVector.get(i), 2);
-        		}
-        		lengthTopic = Math.sqrt(lengthTopic);
-        		lengthDocument = Math.sqrt(lengthDocument);
-        		
-        		double cosineSimilarity = 0;
-        		
-        		if (lengthDocument > 0) {
-        			cosineSimilarity = dotProduct / (lengthTopic * lengthDocument);
-        		}
-        		
-        		similarDocuments.add(new Similarity(documentEntry.getKey(), cosineSimilarity));
-        	}
-        }
+		for (int m=0; m<20; m++) {
+			
+			String currentTopic = documentsToCompute.get(m);
+			
+			//get all terms for the document
+			HashMap<String, TermInfo> topicTerms = documents.get(currentTopic);
+			
+			ArrayList as = new ArrayList(topicTerms.entrySet());  
+	        
+			//sort terms by ifd
+	        Collections.sort( as , new Comparator() {  
+	            public int compare( Object o1 , Object o2 )  
+	            {
+	                Map.Entry e1 = (Map.Entry)o1;  
+	                Map.Entry e2 = (Map.Entry)o2;
+	                TermInfo first = (TermInfo)e1.getValue();
+	                TermInfo second = (TermInfo)e2.getValue();
+	                return Double.compare(second.getIdf(), first.getIdf());  
+	            }
+	        });
+	        
+	        Vector<Double> topicVector = new Vector<Double>();
+	        List<String> topicTopTerms = new ArrayList<String>();
+	        
+	        //select top 20 terms, get topic term vector
+	        Iterator itSorted = as.iterator();
+	        for (int i=0; i<20 && itSorted.hasNext(); i++) {
+	        	Map.Entry<String, TermInfo> sortedTerm = (Entry<String, TermInfo>) itSorted.next();
+	        	
+	        	topicVector.add(sortedTerm.getValue().getIdf());
+	        	topicTopTerms.add(sortedTerm.getKey());
+	        	
+	        	//System.out.println(sortedTerm.getKey() + " " + sortedTerm.getValue().getIdf());
+	        }
+			
+	        
+	        PriorityQueue<Similarity> similarDocuments = new PriorityQueue<Similarity>();
+	        //compute cosine similarity between all documents
+	        for (Entry<String, HashMap<String, TermInfo>> documentEntry : documents.entrySet()) {
+	        	//skip selected document
+	        	if (!documentEntry.getKey().equals(currentTopic)) {
+	        		
+	        		HashMap<String, TermInfo> documentTerms = documentEntry.getValue();
+	        		
+	        		//get current document vector for top terms
+	        		Vector<Double> documetVector = new Vector<Double>();
+	        		for (String term : topicTopTerms) {
+	        			if (documentTerms.containsKey(term)) {
+	        				documetVector.add(documentTerms.get(term).getIdf());
+	        			} else {
+	        				documetVector.add(0.0);
+	        			}
+	        		}
+	        		
+	        		//compute the similarity
+	        		double dotProduct = 0;
+	        		double lengthTopic = 0;
+	        		double lengthDocument = 0;
+	        		for (int i=0; i<topicVector.size(); i++) {
+	        			dotProduct += topicVector.get(i) * documetVector.get(i);
+	        			lengthTopic += Math.pow(topicVector.get(i), 2);
+	        			lengthDocument += Math.pow(documetVector.get(i), 2);
+	        		}
+	        		lengthTopic = Math.sqrt(lengthTopic);
+	        		lengthDocument = Math.sqrt(lengthDocument);
+	        		
+	        		double cosineSimilarity = 0;
+	        		
+	        		if (lengthDocument > 0) {
+	        			cosineSimilarity = dotProduct / (lengthTopic * lengthDocument);
+	        		}
+	        		
+	        		similarDocuments.add(new Similarity(documentEntry.getKey(), cosineSimilarity));
+	        	}
+	        }
 
-        for (Similarity s : similarDocuments) {
-        	System.out.println(s.getDocument() + " " + s.getCosineSimilarity());
-        }
+	        FileWriter fstream = new FileWriter("./output/" + postingListSize + "_topic" + (m+1) + "groupD.txt");
+	        BufferedWriter out = new BufferedWriter(fstream);
+
+	        for (int j=0; j<10; j++) {
+	        	Similarity s = similarDocuments.poll();
+	        	out.write("topic" + (m+1) + " QQ " + s.getDocument() + " " + (j+1) + " " + Math.round(s.getCosineSimilarity()*1000.0)/1000.0 + " groupD_" + postingListSize + "\n");
+	        }
+	        out.close();
+		}
 		
 		
 		} catch (Exception e) {
